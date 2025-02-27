@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import data from "./data/data.ts";
 </script>
 
 <template>
 
   <div class="messageBar">
-    <div class="message">{{"Voted best Thrift Store of Raton 2K25"}}</div>
+    <div class="message">{{data.message}}</div>
   </div>
 
   <div class="wrapper">

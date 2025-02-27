@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed} from "vue";
 
-const props = defineProps(['reviewText','person','image'])
+const props = defineProps(['reviewText','person','image','stars'])
 const imageUrl = computed(()=> 'url("'+props.image+'")').value;
 
 import StarIcon from "@/assets/StarIcon.vue";
@@ -13,9 +13,10 @@ import StarIcon from "@/assets/StarIcon.vue";
 
     <div class="starGroup">
       <div class="stars">
-        <StarIcon v-for="i in 5"/>
+        <StarIcon color="#B89230" v-for="i in stars"/>
+        <StarIcon color="#A9A9A9FF" v-for="i in (5 - stars)"/>
       </div>
-      <div>5/5 Stars</div>
+      <div>{{stars}}/5 Stars</div>
     </div>
 
     <div class="reviewDesc">{{reviewText}}</div>
@@ -51,7 +52,7 @@ import StarIcon from "@/assets/StarIcon.vue";
 }
 
 .reviewImg{
-  transform: translateY(-50%);
+  margin-top: -6vw;
   margin-left: auto;
   height: 12vw;
   width: 12vw;

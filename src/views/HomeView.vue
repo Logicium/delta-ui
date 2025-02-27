@@ -12,12 +12,39 @@ const review1Active = ref(true);
 const review2Active = ref(false);
 const review3Active = ref(false);
 
+const playback = ref(true);
+
 data.reviews[0].active = review1Active;
 data.reviews[1].active = review2Active;
 data.reviews[2].active = review3Active;
 
-console.log(data.reviews);
+const loopReviews = function(){
 
+  if(playback.value){
+    setTimeout(() => {
+      if(playback.value){
+        toggleControl1();
+        setTimeout(() => {
+          if(playback.value){
+            toggleControl2();
+            setTimeout(() => {
+              if(playback.value){
+                toggleControl3();
+                loopReviews();
+              }
+            },3000)
+          }
+        },3000)
+      }
+    },3000)
+
+  }
+
+}
+
+loopReviews();
+
+console.log(data.reviews);
 
 const toggleControl1 = function (){
   review1Active.value = true;
@@ -45,21 +72,21 @@ const toggleControl3 = function (){
 
     <div class="bannerInfo">
       <div class="title">Get the most bang for your buck</div>
-      <div class="subtitle">At Delta Thrift, we take pride in offering only the highest quality vintage thrift finds, from clothes, to antiques, and furniture, experience a world of forgotten treasures.</div>
+      <div class="subtitle">{{data.about0}}</div>
       <div class="button-rev">ORDER NOW</div>
     </div>
 
     <div class="reviews">
     <template v-for="review in data.reviews">
 
-      <Review  :person="review.person" :review-text="review.reviewText" :image="review.image" v-if="review.active.value"/>
+      <Review  :person="review.person" :review-text="review.reviewText" :image="review.image" :stars="review.stars" v-if="review.active.value"/>
 
     </template>
 
       <div class="controls">
-        <div :class="review1Active ? 'active control' : 'control'" @click="toggleControl1"/>
-        <div :class="review2Active ? 'active control' : 'control'" @click="toggleControl2"/>
-        <div :class="review3Active ? 'active control' : 'control'" @click="toggleControl3"/>
+        <div :class="review1Active ? 'active control' : 'control'" @click="toggleControl1();playback=false;console.log('Click')"/>
+        <div :class="review2Active ? 'active control' : 'control'" @click="toggleControl2();playback=false;"/>
+        <div :class="review3Active ? 'active control' : 'control'" @click="toggleControl3();playback=false;"/>
       </div>
 
     </div>
@@ -110,10 +137,9 @@ const toggleControl3 = function (){
 
 .reviews{
   width: 40%;
-  margin: 2rem;
+  margin-right: 2rem;
   margin-left: auto;
   position: relative;
-  height: fit-content;
   align-self: center;
 }
 
@@ -133,23 +159,25 @@ const toggleControl3 = function (){
 
 
 .controls{
-  padding: 2rem;
   display: flex;
+  padding-left: 2rem;
   width: 60%;
   justify-content: space-between;
   position: absolute;
   bottom: 0;
-  transform: translateY(-50%);
 }
 
 .control.active{
-  border: 6px solid #4242e7;
+  //border: 8px solid #4242e7;
+  animation: activate 0.5s forwards;
+  //background-color: #4242e7;
 }
 
 .control{
   background-color: white;
   border-radius: 100%;
-  border: 6px solid #a9a9a9;
+  //border: 8px solid #a9a9a9;
+  //border: 8px solid white;
   height: 3vw;
   width: 3vw;
   cursor: pointer;
@@ -191,6 +219,15 @@ const toggleControl3 = function (){
   background-image: url("../../public/thrift1.jpg");
   background-size: cover;
   background-position: 100% 100%;
+}
+
+@keyframes activate {
+  from{
+    background-color: white;
+  }
+  to{
+    background-color: #4242e7;
+  }
 }
 
 </style>
