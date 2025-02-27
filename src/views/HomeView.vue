@@ -72,7 +72,7 @@ const toggleControl3 = function (){
 
     <div class="bannerInfo">
       <div class="title">Get the most bang for your buck</div>
-      <div class="subtitle">{{data.about0}}</div>
+      <div class="headline">{{data.headline}}</div>
       <div class="button-rev">ORDER NOW</div>
     </div>
 
@@ -169,8 +169,9 @@ const toggleControl3 = function (){
 
 .control.active{
   //border: 8px solid #4242e7;
-  animation: activate 0.5s forwards;
-  //background-color: #4242e7;
+  //animation: activate 0.5s forwards;
+  transition: 0.5s linear all;
+  background-color: #4242e7;
 }
 
 .control{
@@ -181,6 +182,7 @@ const toggleControl3 = function (){
   height: 3vw;
   width: 3vw;
   cursor: pointer;
+  transition: 0.5s linear all;
 }
 
 .bannerInfo{
@@ -197,7 +199,7 @@ const toggleControl3 = function (){
   line-height: 4vw;
   padding: 2rem;
 }
-.subtitle{
+.headline{
   padding: 2rem;
 }
 
