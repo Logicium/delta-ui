@@ -19,8 +19,6 @@ data.reviews[1].active = review2Active;
 data.reviews[2].active = review3Active;
 
 const loopReviews = function(){
-
-  if(playback.value){
     setTimeout(() => {
       if(playback.value){
         toggleControl1();
@@ -37,9 +35,6 @@ const loopReviews = function(){
         },3000)
       }
     },3000)
-
-  }
-
 }
 
 loopReviews();
@@ -78,13 +73,11 @@ const toggleControl3 = function (){
 
     <div class="reviews">
     <template v-for="review in data.reviews">
-
       <Review  :person="review.person" :review-text="review.reviewText" :image="review.image" :stars="review.stars" v-if="review.active.value"/>
-
     </template>
 
       <div class="controls">
-        <div :class="review1Active ? 'active control' : 'control'" @click="toggleControl1();playback=false;console.log('Click')"/>
+        <div :class="review1Active ? 'active control' : 'control'" @click="toggleControl1();playback=false;"/>
         <div :class="review2Active ? 'active control' : 'control'" @click="toggleControl2();playback=false;"/>
         <div :class="review3Active ? 'active control' : 'control'" @click="toggleControl3();playback=false;"/>
       </div>
@@ -95,11 +88,15 @@ const toggleControl3 = function (){
   </div>
 
   <Panel title="ABOUT US" :subtitle="data.about1">
+
     <div class="imageArea">
       <div class="img1"></div>
       <div class="img2"></div>
       <div class="img3"></div>
     </div>
+
+    <div class="galleryBtn button">VIEW GALLERY</div>
+
   </Panel>
 
   <Panel title="LOCATION" :subtitle="data.about1" color="#4242e7" text-color="white">
@@ -110,7 +107,14 @@ const toggleControl3 = function (){
 
   </Panel>
 
-  <Panel title="CONTACT US" :subtitle="data.about1"/>
+  <Panel title="CONTACT US" :subtitle="data.contact1">
+    <div class="contactArea">
+      <input type="text" placeholder="Name">
+      <input type="text" placeholder="Email">
+      <textarea placeholder="Enter your message"></textarea>
+      <div class="contactBtn button-rev">SEND MESSAGE</div>
+    </div>
+  </Panel>
 
 </div>
 
@@ -120,8 +124,57 @@ const toggleControl3 = function (){
 
 <style scoped>
 
+input,textarea{
+  margin: 1vw;
+  background-color: #4242e7;
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 15px;
+  font-family: inherit;
+  box-sizing: border-box;
+  padding-bottom: 4px;
+  transition: 0.25s linear all;
+}
+textarea{
+  height: 30%;
+}
+
+input::placeholder,textarea::placeholder{
+  color: #f2f2f2;
+}
+
+input:focus, textarea:focus{
+  outline: none;
+  border-bottom: 4px solid white;
+  padding-bottom: 2px;
+  transition: 0.25s linear all;
+}
+
+.contactBtn{
+  align-self: center;
+}
+
+.contactArea{
+  padding: 2rem 2rem 0 2rem;
+  background-color: #4242e7;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.galleryBtn{
+  margin-top: auto;
+}
+
 .map{
-  padding: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
   width: 60%;
   height: 100%;
 }
@@ -129,10 +182,12 @@ const toggleControl3 = function (){
 .imageArea{
   display: grid;
   margin-top: 2rem;
+  margin-bottom: 2rem;
   width: 100%;
+  height: 100%;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2rem;
-  grid-template-rows: 30vh;
+  grid-template-rows: 100%;
 }
 
 .reviews{
@@ -144,6 +199,8 @@ const toggleControl3 = function (){
 }
 
 .img1,.img2,.img3{
+  display: flex;
+  flex-direction: column;
   background-image: url("../../public/thrift2.jpg");
   background-size: cover;
   background-position: 100% 100%;
@@ -213,6 +270,14 @@ const toggleControl3 = function (){
   width: fit-content;
 }
 
+.button{
+  width: fit-content;
+  cursor: pointer;
+  border-radius:4px;
+  padding: 1vw;
+  background-color: #4242e7;
+  color: white;
+}
 
 .banner{
   position: relative;

@@ -4,6 +4,7 @@ const data = {
   message:"Voted best Thrift Store of Raton 2K25",
   headline:"At Delta Thrift, we take pride in offering only the highest quality vintage thrift finds. From clothes, to antiques, and furniture, experience a world of forgotten treasures.",
   about1:"We're a local business in the heart of Raton. Since 2020 we have been providing high quality thrift store finds for a great price. Visit us at our 1st Street location to see our changing selection.",
+  contact1:"We're here to assist you with any questions or inquiries you may have. Please feel free to contact us via phone, email, or by filling out the contact form below. We look forward to hearing from you!",
   reviews:[
     {
       person:"Don Chano",
