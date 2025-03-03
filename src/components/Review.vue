@@ -4,7 +4,7 @@ import {computed} from "vue";
 const props = defineProps(['reviewText','person','image','stars'])
 const imageUrl = computed(()=> 'url("'+props.image+'")').value;
 
-import StarIcon from "@/assets/StarIcon.vue";
+import StarIcon from "@/assets/icons/StarIcon.vue";
 </script>
 
 <template>

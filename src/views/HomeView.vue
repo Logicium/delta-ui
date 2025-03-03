@@ -1,12 +1,16 @@
 <script setup lang="ts">
 
 
-import StarIcon from "@/assets/StarIcon.vue";
+import StarIcon from "@/assets/icons/StarIcon.vue";
 import Panel from "@/components/Panel.vue";
 import data from "@/data/data.ts";
 import Map from "@/components/Map.vue";
 import Review from "@/components/Review.vue";
 import {ref} from "vue";
+import Icon from "@/components/Icon.vue";
+import EmailIcon from "@/assets/icons/EmailIcon.vue";
+import MessengerIcon from "@/assets/icons/MessengerIcon.vue";
+import PhoneIcon from "@/assets/icons/PhoneIcon.vue";
 
 const review1Active = ref(true);
 const review2Active = ref(false);
@@ -108,12 +112,31 @@ const toggleControl3 = function (){
   </Panel>
 
   <Panel title="CONTACT US" :subtitle="data.contact1">
-    <div class="contactArea">
-      <input type="text" placeholder="Name">
-      <input type="text" placeholder="Email">
-      <textarea placeholder="Enter your message"></textarea>
-      <div class="contactBtn button-rev">SEND MESSAGE</div>
+<!--    <div class="contactArea">-->
+<!--      <input type="text" placeholder="Name">-->
+<!--      <input type="text" placeholder="Email">-->
+<!--      <textarea placeholder="Enter your message"></textarea>-->
+<!--      <div class="contactBtn button-rev">SEND MESSAGE</div>-->
+<!--    </div>-->
+
+    <div class="contactGrid">
+      <div class="area">
+        <Icon><MessengerIcon/></Icon>
+        <div>@deltathriftco</div>
+        <div class="button-rev">SEND MESSAGE</div>
+      </div>
+      <div class="area">
+        <Icon><PhoneIcon/></Icon>
+        <div>+1 575-256-1024</div>
+        <div class="button-rev">CALL US</div>
+      </div>
+      <div class="area">
+        <Icon><EmailIcon/></Icon>
+        <div>sales@deltathrift.co</div>
+        <div class="button-rev">SEND EMAIL</div>
+      </div>
     </div>
+
   </Panel>
 
 </div>
@@ -123,6 +146,39 @@ const toggleControl3 = function (){
 
 
 <style scoped>
+
+.info{
+  text-align: center;
+  display: flex;
+  width: calc(100% - 4rem);
+  flex-direction: column;
+}
+
+.line2{
+  margin-top: 1vw;
+  border-top: 2px solid white;
+  padding-top: 1vw;
+}
+
+.area{
+  color: white;
+  align-items: center;
+  padding-top: 2rem;
+  background-color: #4242e7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contactGrid{
+  width: 60%;
+  height: 40%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 2rem;
+  align-self: center;
+}
 
 input,textarea{
   margin: 1vw;

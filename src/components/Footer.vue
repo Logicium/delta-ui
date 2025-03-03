@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
-import InstaIcon from "@/assets/InstaIcon.vue";
-import FacebookIcon from "@/assets/FacebookIcon.vue";
-import ShareIcon from "@/assets/ShareIcon.vue";
+import InstaIcon from "@/assets/icons/InstaIcon.vue";
+import FacebookIcon from "@/assets/icons/FacebookIcon.vue";
+import ShareIcon from "@/assets/icons/ShareIcon.vue";
 </script>
 
 <template>
