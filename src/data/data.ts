@@ -16,7 +16,7 @@ const data = {
     {
       person:"Mary Yousef",
       active: ref(false),
-      stars:4,
+      stars:6,
       image:"../../public/person3.jpg",
       reviewText:"\"Every visit has something new and unique to find! I look forward to thrifting Thursdays.\""
     },
