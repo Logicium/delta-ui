@@ -15,13 +15,14 @@ defineProps(["id",'color','textColor','title','subtitle']);
 <style scoped>
 
 .panel{
-  height: 70vh;
+  min-height: 70vh;
   background-color: v-bind(color);
   display: flex;
   align-items: center;
   flex-direction: column;
   color: v-bind(textColor);
   padding-bottom: 2rem;
+  flex-grow: 1;
 }
 
 .title{

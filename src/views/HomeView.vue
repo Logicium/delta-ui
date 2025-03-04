@@ -76,6 +76,7 @@ const toggleControl3 = function (){
     </div>
 
     <div class="reviews">
+
     <template v-for="review in data.reviews">
       <Review  :person="review.person" :review-text="review.reviewText" :image="review.image" :stars="review.stars" v-if="review.active.value"/>
     </template>
@@ -118,24 +119,28 @@ const toggleControl3 = function (){
 <!--      <textarea placeholder="Enter your message"></textarea>-->
 <!--      <div class="contactBtn button-rev">SEND MESSAGE</div>-->
 <!--    </div>-->
+  <div class="gridWrap">
 
     <div class="contactGrid">
       <div class="area">
         <Icon><MessengerIcon/></Icon>
         <div>@deltathriftco</div>
-        <div class="button-rev">SEND MESSAGE</div>
+        <div class="button-rev cta">SEND MESSAGE</div>
       </div>
       <div class="area">
         <Icon><PhoneIcon/></Icon>
-        <div>+1 575-256-1024</div>
-        <div class="button-rev">CALL US</div>
+        <div class="line1">+1 575-256-1024</div>
+        <div class="button-rev cta">CALL US</div>
       </div>
       <div class="area">
         <Icon><EmailIcon/></Icon>
-        <div>sales@deltathrift.co</div>
-        <div class="button-rev">SEND EMAIL</div>
+        <div class="line1">sales@deltathrift.co</div>
+        <div class="button-rev cta">SEND EMAIL</div>
       </div>
     </div>
+
+  </div>
+
 
   </Panel>
 
@@ -154,6 +159,11 @@ const toggleControl3 = function (){
   flex-direction: column;
 }
 
+
+.line1{
+  margin: 1rem;
+}
+
 .line2{
   margin-top: 1vw;
   border-top: 2px solid white;
@@ -170,14 +180,23 @@ const toggleControl3 = function (){
   justify-content: space-between;
 }
 
+.gridWrap{
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .contactGrid{
-  width: 60%;
+  width: 100%;
   height: 40%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-gap: 2rem;
-  align-self: center;
+
 }
 
 input,textarea{
@@ -233,6 +252,8 @@ input:focus, textarea:focus{
   padding-top: 2rem;
   width: 60%;
   height: 100%;
+  display: flex;
+  flex-grow: 1;
 }
 
 .imageArea{
@@ -244,6 +265,7 @@ input:focus, textarea:focus{
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2rem;
   grid-template-rows: 100%;
+  flex-grow: 1;
 }
 
 .reviews{
@@ -281,8 +303,6 @@ input:focus, textarea:focus{
 }
 
 .control.active{
-  //border: 8px solid #4242e7;
-  //animation: activate 0.5s forwards;
   transition: 0.5s linear all;
   background-color: #4242e7;
 }
@@ -290,8 +310,6 @@ input:focus, textarea:focus{
 .control{
   background-color: white;
   border-radius: 100%;
-  //border: 8px solid #a9a9a9;
-  //border: 8px solid white;
   height: 3vw;
   width: 3vw;
   cursor: pointer;
@@ -300,6 +318,9 @@ input:focus, textarea:focus{
 
 .bannerInfo{
   background-color: #4242e7;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   width: 40%;
   height: fit-content;
   color: white;
@@ -313,7 +334,8 @@ input:focus, textarea:focus{
   padding: 2rem;
 }
 .headline{
-  padding: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .button-rev{
@@ -335,10 +357,15 @@ input:focus, textarea:focus{
   color: white;
 }
 
+.cta{
+  margin-top: 0;
+}
+
 .banner{
   position: relative;
   display: flex;
-  height: 60vh;
+  min-height: 60vh;
+  padding-bottom: 2rem;
   background-image: url("../../public/thrift1.jpg");
   background-size: cover;
   background-position: 100% 100%;
@@ -350,6 +377,46 @@ input:focus, textarea:focus{
   }
   to{
     background-color: #4242e7;
+  }
+}
+
+@keyframes fade-in {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+
+
+@media only screen and (max-width: 760px) {
+  .banner{
+    flex-direction: column;
+  }
+
+  .bannerInfo{
+    animation: 1s fade-in forwards;
+    width: 60%;
+  }
+
+  .reviews{
+    animation: 1s fade-in forwards;
+    width: 60%;
+    margin-left: 2rem;
+  }
+
+  .imageArea{
+    animation: 1s fade-in forwards;
+    width:60%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20vh 20vh 20vh;
+  }
+
+  .contactGrid{
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 

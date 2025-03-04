@@ -19,7 +19,7 @@ import StarIcon from "@/assets/icons/StarIcon.vue";
       <div>{{stars}}/5 Stars</div>
     </div>
 
-    <div class="reviewDesc">{{reviewText}}</div>
+    <div class="textWrap"><p class="reviewDesc">{{reviewText}}</p></div>
 
     <div class="person">- {{person}}</div>
 
@@ -45,10 +45,21 @@ import StarIcon from "@/assets/icons/StarIcon.vue";
   border-radius: 4px;
 }
 
+.textWrap{
+  display: inline-block;
+  max-width: 100%;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
 .reviewDesc{
   margin-top: 2rem;
   margin-bottom: 2rem;
   font-style: italic;
+  display: -webkit-box;
+  text-overflow: ellipsis;
 }
 
 .reviewImg{

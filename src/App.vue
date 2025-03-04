@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import data from "./data/data.ts";
 import Footer from "@/components/Footer.vue";
+import MenuIcon from "@/assets/icons/MenuIcon.vue";
 </script>
 
 <template>
@@ -19,8 +20,9 @@ import Footer from "@/components/Footer.vue";
       </div>
 
       <div class="navItems">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink class="navItem" to="/">Home</RouterLink>
+        <RouterLink class="navItem" to="/about">About</RouterLink>
+        <div class="button mobileMenu"><MenuIcon/></div>
         <div class="button">ORDER NOW</div>
       </div>
 
@@ -35,6 +37,16 @@ import Footer from "@/components/Footer.vue";
 </template>
 
 <style scoped>
+
+.mobileMenu{
+  display: none;
+  margin-left: auto;
+  margin-right: 1vw;
+}
+
+.mobileMenu svg{
+  color: white;
+}
 
 .logo{
   height: 4vw;
@@ -86,6 +98,16 @@ import Footer from "@/components/Footer.vue";
   justify-content: center;
   background-color: #4242e7;
   color: white;
+}
+
+@media only screen and (max-width: 760px) {
+  .mobileMenu{
+    display: flex;
+  }
+
+  .navItem{
+    display: none;
+  }
 }
 
 </style>

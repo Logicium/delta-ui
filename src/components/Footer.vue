@@ -3,6 +3,7 @@
 import InstaIcon from "@/assets/icons/InstaIcon.vue";
 import FacebookIcon from "@/assets/icons/FacebookIcon.vue";
 import ShareIcon from "@/assets/icons/ShareIcon.vue";
+import Icon from "@/components/Icon.vue";
 </script>
 
 <template>
@@ -16,9 +17,9 @@ import ShareIcon from "@/assets/icons/ShareIcon.vue";
     </div>
     <div class="phone"></div>
     <div class="icons">
-      <div class="icon"><InstaIcon/></div>
-      <div class="icon"><FacebookIcon/></div>
-      <div class="icon"><ShareIcon/></div>
+      <Icon><InstaIcon/></Icon>
+      <Icon><FacebookIcon/></Icon>
+      <Icon><ShareIcon/></Icon>
     </div>
     <div class="disclosure">
       <div>
@@ -34,17 +35,6 @@ import ShareIcon from "@/assets/icons/ShareIcon.vue";
 </template>
 
 <style scoped>
-
-.icon{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  height: 4vw;
-  width: 4vw;
-  border-radius: 100%;
-  cursor: pointer;
-}
 
 .icon svg{
   color: #4242e7;

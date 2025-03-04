@@ -15,8 +15,8 @@
   align-items: center;
   justify-content: center;
   background-color: white;
-  height: 4vw;
-  width: 4vw;
+  height: calc(15px + 3vw);
+  width: calc(15px + 3vw);
   border-radius: 100%;
   cursor: pointer;
 }
