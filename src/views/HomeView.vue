@@ -62,6 +62,8 @@ const toggleControl3 = function (){
   review1Active.value = false;
 }
 
+const showGallery = ref(false);
+
 </script>
 
 <template>
@@ -100,11 +102,17 @@ const toggleControl3 = function (){
       <div class="img3"></div>
     </div>
 
-    <div class="galleryBtn button">VIEW GALLERY</div>
+    <div class="gallery" v-if="showGallery">
+      <div class="img1"></div>
+      <div class="img2"></div>
+      <div class="img3"></div>
+    </div>
+
+    <div class="galleryBtn button" @click="showGallery=!showGallery">{{showGallery ? "HIDE GALLERY" : "VIEW GALLERY"}}</div>
 
   </Panel>
 
-  <Panel title="LOCATION" :subtitle="data.about1" color="#4242e7" text-color="white">
+  <Panel title="LOCATION" :subtitle="data.about2" color="#4242e7" text-color="white">
 
     <div class="map">
       <Map/>
@@ -253,6 +261,18 @@ input:focus, textarea:focus{
   width: 60%;
   height: 100%;
   display: flex;
+  flex-grow: 1;
+}
+
+.gallery{
+  animation: 1s fade-in forwards;
+  display: grid;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  grid-template-rows: 100% 100%;
   flex-grow: 1;
 }
 

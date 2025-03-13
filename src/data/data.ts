@@ -1,9 +1,10 @@
 import {ref} from "vue";
 
 const data = {
-  message:"Voted best Thrift Store of Raton 2K25",
+  message:"Voted Best Thrift Store of Raton 2025",
   headline:"At Delta Thrift, we take pride in offering only the highest quality vintage thrift finds. From clothes, to antiques, and furniture, experience a world of forgotten treasures.",
   about1:"We're a local business in the heart of Raton. Since 2020 we have been providing high quality thrift store finds for a great price. Visit us at our 1st Street location to see our changing selection.",
+  about2:"We're proud to be part of Raton's community and invite you to discover the charm of our vintage finds. Our location provides easy access to a unique shopping destination right in the heart of town.",
   contact1:"We're here to assist you with any questions or inquiries you may have. Please feel free to contact us via phone, email, or via instant messenger. We look forward to hearing from you!",
   reviews:[
     {
